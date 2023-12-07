@@ -1,0 +1,108 @@
+
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <!-- llamamos al archivo css-->
+    <title>trivia</title>
+  </head>
+  <body>
+    <!-- Pantalla inicial -->
+
+    <div id="pantalla-inicial">
+      <div class="title">
+        <h1>Trivia</h1>
+      </div>
+      <p>¿Que desafio eliges hoy?</p>
+      <!--</div>-->
+      <div class="button">
+        <button class="btn" onclick="CulturaGeneral()">Cultura General</button>
+        <button class="btn" onclick="Historia()">Historia</button>
+        <button class="btn" onclick="Matematicas()">Matematicas</button>
+      </div>
+    </div>
+
+    <!-- Pantalla juego -->
+
+    <div class="pantalla-juego" id="pantalla-juego">
+      <h2>Demuestra cuanto sabes</h2>
+     
+        <div class="preguntas" id="Textpreguntas"></div>
+      
+
+      <!-- funciones que comprueban respuesta correcta cultura general -->
+
+      <div class="opciones" id= "opcionesC">
+        <div class="opcion" id="op0" onclick="comprobarRespuestaC(0)">
+          <div class="letra" id="l0">A</div>
+          <div class="nombre" id="n0"></div>
+        </div>
+        <div class="opcion" id="op1" onclick="comprobarRespuestaC(1)">
+          <div class="letra" id="l1">B</div>
+          <div class="nombre" id="n1"></div>
+        </div>
+        <div class="opcion" id="op2" onclick="comprobarRespuestaC(2)">
+          <div class="letra" id="l2">C</div>
+          <div class="nombre" id="n2"></div>
+        </div>
+      </div>
+    
+
+    <!-- funciones que comprueban respuesta correcta historia -->
+     
+ 
+      <div class="opciones" id= "opcionesH">
+        <div class="opcion" id="opH0" onclick="comprobarRespuestaH(0)">
+          <div class="letra" id="lH0">A</div>
+          <div class="nombre" id="nH0"></div>
+        </div>
+        <div class="opcion" id="opH1" onclick="comprobarRespuestaH(1)">
+          <div class="letra" id="lH1">B</div>
+          <div class="nombre" id="nH1"></div>
+        </div>
+        <div class="opcion" id="opH2" onclick="comprobarRespuestaH(2)">
+          <div class="letra" id="lH2">C</div>
+          <div class="nombre" id="nH2"></div>
+        </div>
+      </div>
+
+    <!-- funciones que comprueban respuesta correcta matematicas-->
+
+  
+      <div class="opciones" id= "opcionesM">
+        <div class="opcion" id="opM0" onclick="comprobarRespuestaM(0)">
+          <div class="letra" id="lM0">A</div>
+          <div class="nombre" id="nM0"></div>
+        </div>
+        <div class="opcion" id="opM1" onclick="comprobarRespuestaM(1)">
+          <div class="letra" id="lM1">B</div>
+          <div class="nombre" id="nM1"></div>
+        </div>
+        <div class="opcion" id="opM2" onclick="comprobarRespuestaM(2)">
+          <div class="letra" id="lM2">C</div>
+          <div class="nombre" id="nM2"></div>
+        </div>
+      </div>
+
+ </div>
+    <!-- Pantalla final -->
+    <div id="pantalla-final">
+      <h2>CORRECTAS: <span id="numCorrectas">3</span></h2>
+      <h2>INCORRECTAS: <span id="numIncorrectas">2</span></h2>
+      <button class="btn" onclick="volverAlInicio()">VOLVER AL INICIO</button>
+      <img
+        src="https://cdn.glitch.global/7ebc5348-6a0e-4a58-ae73-61d6ac7c28bc/carita-bailecito.gif?v=1690318514917"
+        alt="gif no encontrado"
+        id="imgsalida"
+      />
+    </div>
+
+    <!-- llamamos a los archivos javascript <script src="matematicas.js"></script>-->
+    <script src="Cultura.js"></script>
+    <script src="historia.js"></script>
+    <script src="matematicas.js"></script>
+  </body>
+</html>
