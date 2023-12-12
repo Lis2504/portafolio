@@ -1,0 +1,162 @@
+/* tipo de letra del juego*/
+
+@import url('https://fonts.googleapis.com/css2?family=Mochiy+Pop+One&display=swap');
+*{
+    box-sizing: border-box;
+    font-family: 'Mochiy Pop One';
+
+}
+/*cuerpo de fondo */
+body{
+  margin: 1rem; 
+  background-image: url("https://cdn.glitch.global/8f11a637-d8de-4eae-ad4d-250ac1d44e1f/pxfuel.jpg?v=1690240391469")
+    
+    
+}
+     /* PANTALLA INICIO */
+.title {
+    width: fit-content;
+    background-color: yellow;
+    margin: 40px auto;
+    border-radius: 60px;
+    box-shadow: 5px 5px 0 #000000;
+    padding: 20px 30px;
+    color: green
+  
+}
+
+p{
+    width: fit-content;
+    backdrop-filter: blur(15px);
+    margin: 40px auto;
+    border-radius: 0px;
+    box-shadow: 5px 5px  #000000;
+    padding: 30px 30px;
+    text-align: center;
+    font-size: 20px;
+    color: #000000;
+  
+  
+}
+
+.button{
+     text-align: center;
+     width: 70vw;
+  margin: auto; }
+  
+
+
+.btn{
+    justify-content: center;
+    align-items: center;
+    border: none;
+    background: green;
+    color: yellow;
+    padding: 10px 20px;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: .5s;
+    font-size: 20px;
+ 
+  /* intentar centrar botones */
+}
+.btn:hover{
+    transform: scale(1.1);
+}
+ /*FINAL DE PANTALLA INICIAL*/
+
+
+/* PANTALLA juego */
+#pantalla-juego{
+    display: none;
+}
+.pantalla-juego{
+   backdrop-filter: blur(15px);
+    max-width: 800px;
+    margin: 60px auto;
+    text-align: center;
+}
+
+.opciones{
+    max-width: 400px;
+    margin: auto;
+}
+
+.opcion{
+    display: flex;
+    position: relative;
+    align-items: center;
+    max-width: 400px;
+    margin: 30px auto;
+    cursor: pointer;
+}
+.opcion .letra{
+    background-color: #8A2908;
+    width: 50px;
+    height: 50px;
+    font-size: 30px;
+    font-weight: bold;
+    color: #ffffff;
+    text-align: center;
+    border-radius: 50%;
+    line-height: 35px;
+    border: 5px solid #ffffff;
+    position: relative;
+}
+
+
+
+.opcion .nombre{
+    background: #ffffff;
+    width: 100%;
+    font-size: 25px;
+    position: absolute;
+    margin-left: 30px;
+    z-index: -2;
+    border-radius: 0 20px 20px 0;
+    padding: 7px 0 7px 30px;
+  
+}
+/* clases que se aplicará cuando haya acertada la opcion  */
+.opcion .nombreAcertada{
+    background-color: yellowgreen;
+    color: #ffffff;
+}
+.opcion .letraAcertada{
+    background-color: yellowgreen;
+    color: #ffffff ;
+}
+/* clases que se aplicaran cuando se equivoque en la opcion elegida */
+.opcion .nombreNoAcertada{
+    background-color: darkred;
+    color: #ffffff;
+}
+.opcion .letraNoAcertada{
+    background-color: darkred;
+    color: #ffffff;
+}
+
+
+
+
+/* PANTALLA final */
+#pantalla-final{
+    display: none;
+    text-align: center;
+}
+#pantalla-final #numCorrectas{
+    background-color: chartreuse;
+    display: inline-block;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    border: 5px solid #ffffff;  
+}
+#pantalla-final #numIncorrectas{
+    background-color: RED;
+    display: inline-block;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    border: 5px solid #ffffff;
+}
