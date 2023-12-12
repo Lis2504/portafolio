@@ -1,0 +1,107 @@
+let preguntas = [                 // Orden que se mostrarán las preguntas
+                  "¿cual es el rio mas largo del mundo?",
+                  "¿Qué país tiene forma de bota?",
+                  "¿Cual es país más poblado de la Tierra?", 
+                  "¿Cual es el color que representa la esperanza", 
+                  "¿Quién “sabía que no sabía nada”?"
+                ];
+
+let correcta = [2,2,1,1,0];       //agrupacion que guardara la opcion correcta
+let opciones = [];                //guarda las respuestas de cada pregunta
+let posActual = 0;                //variable que guarda la posicion actual
+let cantOK = 0;                   //variable que guarda la cantidad acertadas hasta el momento
+
+// introduce un elemento en las opciones a mostrar en cada nivel 
+opciones.push(["MISISIPI", "NILO", "AMAZONAS"]);
+opciones.push(["CHILE", "ESPAÑA", "ITALIA"]);
+opciones.push(["ESTADOS UNIDOS", "CHINA", "INDIA"]);
+opciones.push(["ROSA", "VERDE", "GRIS"]);
+opciones.push(["PLATON", "SOCRATES", "ARISTOTELES"]);
+
+
+function CulturaGeneral(){
+    //reseteamos las variables
+    posActual = 0;
+    cantOK = 0;
+    //activamos las pantallas necesarias
+    document.getElementById("pantalla-inicial").style.display = "none";
+    document.getElementById("pantalla-juego").style.display = "block";
+    cargarPreg(); // funcion que carga las preguntas
+  BloqueoOpC ();
+
+}
+
+//funcion que carga la siguiente pregunta y sus opciones
+function cargarPreg(){
+  
+    //controlo si se acaban las preguntas
+    if(preguntas.length <= posActual){
+            FinJuego();
+        }
+    else{//limpiamos las clases que se asignaron
+            ClearOp();
+            //cargo las opciones
+            document.getElementById("Textpreguntas").innerHTML =   preguntas[posActual];//revisar//
+            document.getElementById("n0").innerHTML = opciones[posActual][0];
+            document.getElementById("n1").innerHTML = opciones[posActual][1];
+            document.getElementById("n2").innerHTML = opciones[posActual][2];
+        }
+    }
+
+function ClearOp(){
+            document.getElementById("n0").className = "nombre";
+            document.getElementById("n1").className = "nombre";
+            document.getElementById("n2").className = "nombre";
+
+            document.getElementById("l0").className = "letra";
+            document.getElementById("l1").className = "letra";
+            document.getElementById("l2").className = "letra";
+  }
+
+function BloqueoOpC (){
+
+        document.getElementById("opcionesM").style.display = "none";
+        document.getElementById("opcionesC").style.display = "block";
+        document.getElementById("opcionesH").style.display = "none"
+}
+function comprobarRespuestaC(opElegida){
+        if(opElegida==correcta[posActual]){ //acertó
+                  //agregamos las clases para colocar el color verde a la opcion elegida
+                  document.getElementById("n" + opElegida).className = "nombre nombreAcertada";
+                  document.getElementById("l" + opElegida).className = "letra letraAcertada";
+                  cantOK++;}
+        else{//no acerto
+                  //agramos las clases para colocar en rojo la opcion elegida
+                  document.getElementById("n" + opElegida).className = "nombre nombreNoAcertada";
+                  document.getElementById("l" + opElegida).className = "letra letraNoAcertada";
+                  //opcion que era correcta
+                  document.getElementById("n" + correcta[posActual]).className = "nombre nombreAcertada";
+                  document.getElementById("l" + correcta[posActual]).className = "letra letraAcertada";
+            }
+        posActual++;
+        setTimeout(cargarPreg,1000);//Esperamos 1 segundo y pasamos mostrar la siguiente pregunta sus opciones
+}
+function FinJuego(){
+        //ocultamos las pantallas y mostramos la pantalla final
+        document.getElementById("pantalla-juego").style.display = "none";
+        document.getElementById("pantalla-final").style.display = "block";
+        //agreamos los resultados
+        document.getElementById("numCorrectas").innerHTML = cantOK;
+        document.getElementById("numIncorrectas").innerHTML = preguntas.length - cantOK;
+        if(cantOK>=3){
+                     document.getElementById("imgsalida").src = "https://cdn.glitch.global/7ebc5348-6a0e-4a58-ae73-61d6ac7c28bc/CHICOS%20(113).gif?v=1690321173996" ; 
+                     }
+        else{
+                     document.getElementById("imgsalida").src = "https://cdn.glitch.global/7ebc5348-6a0e-4a58-ae73-61d6ac7c28bc/sad-lonely.gif?v=1690321970007";
+             }
+        }
+
+function volverAlInicio(){
+        //ocultamos las pantallas y activamos la inicial
+        document.getElementById("pantalla-final").style.display = "none";
+        document.getElementById("pantalla-inicial").style.display = "block";
+        document.getElementById("pantalla-juego").style.display = "none";
+      
+      }
+
+
